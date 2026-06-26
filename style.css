@@ -1,0 +1,424 @@
+/* =====================
+   VARIABLES — PALETA CLARA URBANA
+   ===================== */
+:root {
+  --orange:  #E8470A;      /* naranja ladrillo, más serio que el neón original */
+  --blue:    #1A56DB;
+  --cyan:    #1A56DB;      /* el "acento cyan" original → ahora azul urbano */
+  --accent2: #E8470A;      /* segundo acento = naranja ladrillo */
+  --dark:    #F2F0EB;      /* fondo principal: crema off-white */
+  --gray:    #E6E3DC;      /* fondo sección alternativa */
+  --neon:    #1A56DB;      /* botón neon → azul sólido */
+  --white:   #111111;      /* texto principal (invertido) */
+  --surface: #FFFFFF;      /* tarjetas */
+  --border:  #D5D0C8;      /* bordes suaves */
+  --muted:   #6B6560;      /* texto secundario */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--dark);
+  color: #111;
+  font-family: 'Space Grotesk', sans-serif;
+  overflow-x: hidden;
+}
+
+/* =====================
+   NAVBAR
+   ===================== */
+.navbar {
+  background: rgba(242,240,235,.95);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--border);
+}
+.navbar-brand {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #111 !important;
+}
+.nav-link {
+  color: #333 !important;
+  margin-left: 20px;
+  font-weight: 600;
+  font-size: .9rem;
+  letter-spacing: .5px;
+}
+.nav-link:hover, .nav-link.active { color: var(--cyan) !important; }
+
+.navbar-toggler { border-color: var(--border); }
+
+/* botón neon → azul sólido */
+.btn-neon {
+  background: var(--neon);
+  border: 2px solid var(--neon);
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-family: 'Space Grotesk', sans-serif;
+  transition: .3s;
+}
+.btn-neon:hover {
+  background: transparent;
+  color: var(--neon);
+}
+
+/* =====================
+   HERO
+   ===================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(rgba(242,240,235,.82), rgba(242,240,235,.88)),
+    url('../images/hero.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.hero-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 7rem;
+  font-weight: 900;
+  line-height: .9;
+  margin: 20px 0;
+  color: #111;
+  /* degradado de texto oscuro */
+  background: linear-gradient(90deg, #111 0%, var(--orange) 60%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-tag {
+  color: var(--cyan);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.hero-subtitle {
+  max-width: 700px;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+/* graffiti decorativo */
+.graffiti {
+  position: absolute;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 10rem;
+  opacity: .05;
+  transform: rotate(-10deg);
+  color: var(--orange);
+  pointer-events: none;
+  user-select: none;
+}
+.g1 { top: 10%; right: 5%; }
+.g2 { bottom: 10%; left: 5%; }
+
+/* =====================
+   SECCIÓN TÍTULOS
+   ===================== */
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #111;
+}
+.section-sub {
+  color: var(--muted);
+  font-size: 1rem;
+  margin-top: .25rem;
+}
+
+/* =====================
+   EXPERIENCIA
+   ===================== */
+.experience {
+  padding: 120px 0;
+  background: var(--gray);
+}
+.step-card {
+  height: 100%;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 24px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: .35s;
+  color: #222;
+}
+.step-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--cyan);
+  box-shadow: 0 8px 28px rgba(26,86,219,.12);
+}
+.step-card::before {
+  content: "";
+  position: absolute;
+  width: 120px; height: 120px;
+  background: var(--orange);
+  top: -40px; right: -40px;
+  border-radius: 50%;
+  opacity: .08;
+}
+.step-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #111;
+}
+.step-card p { color: var(--muted); font-size: .95rem; line-height: 1.7; }
+
+/* =====================
+   STATS
+   ===================== */
+.stats { padding: 80px 0; background: var(--dark); }
+.stat-box { text-align: center; }
+.stat-number {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--cyan);
+}
+.stats p { color: var(--muted); font-weight: 600; letter-spacing: 1px; font-size: .85rem; }
+
+/* =====================
+   BATALLA SECTION
+   ===================== */
+.batalla-section {
+  padding: 120px 0;
+  background: var(--gray);
+  position: relative;
+}
+.batalla-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(26,86,219,.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+.batalla-eyebrow {
+  color: var(--cyan);
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.batalla-title {
+  font-size: 5rem;
+  line-height: .9;
+  background: linear-gradient(90deg, #111, var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+
+/* tarjeta acordeón */
+.cat-vitrina {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: .3s;
+}
+.cat-vitrina:hover {
+  border-color: rgba(26,86,219,.45);
+  box-shadow: 0 6px 24px rgba(26,86,219,.1);
+}
+.cat-vitrina.orange { border-color: rgba(232,71,10,.2); }
+.cat-vitrina.orange:hover {
+  border-color: rgba(232,71,10,.5);
+  box-shadow: 0 6px 24px rgba(232,71,10,.1);
+}
+
+.cat-vitrina-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px;
+  background: var(--surface);
+}
+.cat-vitrina-left { display: flex; align-items: center; gap: 16px; }
+.cat-vitrina-icon { font-size: 2.2rem; }
+.cat-vitrina-label {
+  color: var(--cyan);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.cat-vitrina-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  line-height: 1;
+  color: #111;
+}
+.cat-vitrina-arrow {
+  color: var(--cyan);
+  font-size: 1rem;
+  transition: transform .35s;
+}
+.cat-vitrina-arrow.open { transform: rotate(180deg); }
+.cat-vitrina-arrow.orange { color: var(--orange); }
+
+.cat-vitrina-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .45s ease;
+  padding: 0 28px;
+  background: var(--surface);
+}
+.cat-vitrina-body.open {
+  max-height: 600px;
+  padding-bottom: 28px;
+}
+
+.cat-vitrina-placeholder {
+  width: 100%;
+  aspect-ratio: 16/7;
+  background: var(--gray);
+  border: 2px dashed var(--border);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.placeholder-emoji { font-size: 3rem; }
+.placeholder-label {
+  color: #aaa;
+  font-size: .78rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.cat-vitrina-desc {
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 16px;
+  font-size: .95rem;
+}
+.cat-vitrina-info { display: flex; flex-direction: column; gap: 8px; }
+.info-item {
+  font-size: .84rem;
+  color: #444;
+  padding: 8px 14px;
+  background: var(--gray);
+  border-radius: 8px;
+  border-left: 3px solid var(--cyan);
+}
+.cat-vitrina.orange .info-item { border-left-color: var(--orange); }
+
+/* =====================
+   MI EXPERIENCIA
+   ===================== */
+.mi-experiencia {
+  padding: 100px 0;
+  background: var(--dark);
+  border-top: 1px solid var(--border);
+}
+.exp-text-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 24px;
+  padding: 48px;
+  color: #333;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+.exp-text-card p { margin-bottom: 18px; }
+.exp-text-card p:last-child { margin-bottom: 0; }
+
+.exp-gallery-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 24px;
+  padding: 32px;
+}
+
+/* GALERÍA — grid ordenado */
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+.preview-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1.5px solid var(--border);
+  display: block;
+  transition: transform .25s, box-shadow .25s;
+}
+.preview-img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 20px rgba(0,0,0,.1);
+}
+
+/* =====================
+   FOOTER
+   ===================== */
+footer {
+  background: #111;
+  padding: 60px 0;
+  border-top: 1px solid #222;
+  color: #ccc;
+}
+.footer-title {
+  color: var(--orange);
+  font-weight: 800;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+footer p { color: #888; font-size: .9rem; line-height: 1.6; }
+.footer-link {
+  display: block;
+  color: #888;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: .9rem;
+  transition: color .2s;
+}
+.footer-link:hover { color: var(--cyan); }
+.copy {
+  border-top: 1px solid #222;
+  margin-top: 30px;
+  padding-top: 20px;
+  text-align: center;
+  color: #555;
+  font-size: .85rem;
+}
+
+/* =====================
+   RESPONSIVE
+   ===================== */
+@media (max-width: 992px) {
+  .hero-title    { font-size: 4.5rem; }
+  .section-title { font-size: 3rem; }
+  .batalla-title { font-size: 3.5rem; }
+}
+@media (max-width: 768px) {
+  .hero-title    { font-size: 3.2rem; }
+  .hero-subtitle { font-size: 1rem; }
+  .exp-text-card { padding: 28px 20px; }
+  .exp-gallery-card { padding: 20px; }
+  .cat-vitrina-header { padding: 18px 20px; }
+  .cat-vitrina-body.open { padding: 0 20px 20px; }
+  .preview-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+}
