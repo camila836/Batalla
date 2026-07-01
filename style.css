@@ -21,7 +21,7 @@ body {
   background: var(--dark);
   color: #111;
   font-family: 'Space Grotesk', sans-serif;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 /* =====================
