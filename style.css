@@ -1,6 +1,4 @@
-/* =====================
-   VARIABLES — PALETA CLARA URBANA
-   ===================== */
+
 :root {
   --orange:  #E8470A;      /* naranja ladrillo, más serio que el neón original */
   --blue:    #1A56DB;
@@ -17,11 +15,17 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html, body {
+  height: 100%;
+}
+
 body {
   background: var(--dark);
   color: #111;
   font-family: 'Space Grotesk', sans-serif;
-  overflow: hidden;
+  overflow: hidden; /* bloquea el scroll libre de toda la página */
+  display: flex;
+  flex-direction: column;
 }
 
 /* =====================
@@ -31,6 +35,7 @@ body {
   background: rgba(242,240,235,.95);
   backdrop-filter: blur(15px);
   border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
 }
 .navbar-brand {
   font-family: 'Barlow Condensed', sans-serif;
@@ -50,27 +55,76 @@ body {
 
 .navbar-toggler { border-color: var(--border); }
 
-/* botón neon → azul sólido */
+/* botón neon → azul sólido con efecto glow */
 .btn-neon {
   background: var(--neon);
   border: 2px solid var(--neon);
   color: #fff;
-  padding: 12px 28px;
+  padding: 14px 34px;
   border-radius: 50px;
   font-weight: 700;
   font-family: 'Space Grotesk', sans-serif;
+  box-shadow: 0 0 0 rgba(26,86,219,0), 0 4px 18px rgba(26,86,219,.35);
   transition: .3s;
 }
 .btn-neon:hover {
   background: transparent;
   color: var(--neon);
+  box-shadow: 0 0 20px rgba(26,86,219,.55), 0 0 40px rgba(26,86,219,.25);
+}
+
+/* botón outline del hero → mismo estilo pill + glow en naranja, más sutil */
+.hero .btn-outline-dark {
+  border: 2px solid var(--orange);
+  color: var(--orange);
+  padding: 14px 34px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-family: 'Space Grotesk', sans-serif;
+  background: transparent;
+  box-shadow: 0 0 12px rgba(232,71,10,.15);
+  transition: .3s;
+}
+.hero .btn-outline-dark:hover {
+  background: var(--orange);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(232,71,10,.5), 0 0 40px rgba(232,71,10,.2);
+}
+
+/* =====================
+   CONTENEDOR DE VISTAS (nuevo — controla la navegación por botones)
+   ===================== */
+.vistas {
+  position: relative;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.vistas > section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;   /* si el contenido de la sección no cabe, hace scroll dentro de ella */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .4s ease;
+  z-index: 1;
+}
+
+.vistas > section.vista-activa {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
 }
 
 /* =====================
    HERO
    ===================== */
 .hero {
-  min-height: 100vh;
+  min-height: 100%;
   display: flex;
   align-items: center;
   background:
@@ -374,35 +428,36 @@ body {
    ===================== */
 footer {
   background: #111;
-  padding: 60px 0;
+  padding: 24px 0;
   border-top: 1px solid #222;
   color: #ccc;
+  flex-shrink: 0;
 }
 .footer-title {
   color: var(--orange);
   font-weight: 800;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   letter-spacing: 1px;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
-footer p { color: #888; font-size: .9rem; line-height: 1.6; }
+footer p { color: #888; font-size: .8rem; line-height: 1.4; }
 .footer-link {
   display: block;
   color: #888;
   text-decoration: none;
-  margin-bottom: 10px;
-  font-size: .9rem;
+  margin-bottom: 4px;
+  font-size: .8rem;
   transition: color .2s;
 }
 .footer-link:hover { color: var(--cyan); }
 .copy {
   border-top: 1px solid #222;
-  margin-top: 30px;
-  padding-top: 20px;
+  margin-top: 14px;
+  padding-top: 10px;
   text-align: center;
   color: #555;
-  font-size: .85rem;
+  font-size: .75rem;
 }
 
 /* =====================
